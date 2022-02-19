@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --background-color: #F0F0EF;
+  --primary-color: #333;
+  --transfer-background-light: #f8c82a;
+  --transfer-background-dark: #f0a206;
+  --loan-background-light: #88D753;
+  --loan-background-dark: #3DAC74;
+  --close_account-background-light: #fc7a81;
+  --close_account-background-dark: #E8304D;
+  --font-size_small: 13px;
+  --font-small-size: 10px;
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bdbdbd;
+  border-radius: 5px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+.component-heading {
+  font-size: 14px;
+}
+
+.transfer form,
+.loan form,
+.close-account form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 3%;
+  margin-top: 0.2rem;
+}
+
+.transfer form > div,
+.loan form > div,
+.close-account form > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.transfer form > div:not(:last-child),
+.loan form > div:not(:last-child),
+.close-account form > div:not(:last-child) {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+}
+
+.transfer form > div label,
+.loan form > div label,
+.close-account form > div label {
+  display: inline-block;
+  font-size: 12px;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.transfer form > div input[type="text"],
+.transfer form > div input[type="number"],
+.transfer form > div input[type="password"],
+.loan form > div input[type="text"],
+.loan form > div input[type="number"],
+.loan form > div input[type="password"],
+.close-account form > div input[type="text"],
+.close-account form > div input[type="number"],
+.close-account form > div input[type="password"] {
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  background-color: #ffffff7c;
+  outline: none;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+
+.transfer form > div button[type="submit"],
+.loan form > div button[type="submit"],
+.close-account form > div button[type="submit"] {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 5%;
+}
+
+header h1 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+header .logo img {
+  width: 90px;
+  cursor: pointer;
+}
+
+header .user_button, header .pin_button {
+  padding: 6px 10px;
+  width: 110px;
+  text-align: center;
+  font-size: 15px;
+  margin: 0px 3px;
+  outline: none;
+  border: none;
+  border-radius: 18px;
+  -webkit-box-shadow: 1px 1px 15px #f0f0f0;
+          box-shadow: 1px 1px 15px #f0f0f0;
+}
+
+header .user_button:focus, header .pin_button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid gray;
+}
+
+header .submit_button {
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 75rem) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 80px;
+  }
+  header .logo {
+    display: none;
+  }
+}
+
+.app {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 2fr;
+      grid-template-columns: 3fr 2fr;
+  -ms-grid-rows: (100px)[5];
+      grid-template-rows: repeat(5, 100px);
+  gap: 10px;
+  padding: 10px;
+  max-width: 920px;
+  margin: 0px auto;
+  font-family: inherit;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.app > * {
+  border-radius: 5px;
+}
+
+.balance {
+  grid-column: 1/-1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.balance-current h2 {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.balance-current p {
+  font-size: var(--font-size_small);
+}
+
+.balance-amount h2 {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+
+.movements {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  grid-row: 2/span 3;
+  background-color: #fff;
+  -webkit-box-shadow: 0.5px 0.5px 25px #0000001c;
+          box-shadow: 0.5px 0.5px 25px #0000001c;
+  overflow: auto;
+  border-bottom: 5px solid #fff;
+  border-top: 5px solid #fff;
+}
+
+.movements .movement-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.movements .movement-item:not(:last-child) {
+  border-bottom: 1px solid var(--background-color);
+}
+
+.movements .movement-item p.movement-type-depozit {
+  padding: 0.2rem 0.4rem;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 20px;
+  font-size: var(--font-small-size);
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--loan-background-light)), to(var(--loan-background-dark)));
+  background-image: linear-gradient(to right, var(--loan-background-light), var(--loan-background-dark));
+}
+
+.movements .movement-item p.movement-type-withdrawal {
+  padding: 0.2rem 0.4rem;
+  color: #fff;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: var(--font-small-size);
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--close_account-background-light)), to(var(--close_account-background-dark)));
+  background-image: linear-gradient(to right, var(--close_account-background-light), var(--close_account-background-dark));
+}
+
+.movements .movement-item h3.movement-value-amount {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.movements .movement-item .movement-date-value {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.transfer {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(var(--transfer-background-light)), to(var(--transfer-background-dark)));
+  background-image: linear-gradient(to right bottom, var(--transfer-background-light), var(--transfer-background-dark));
+  padding: 1rem 1.4rem;
+}
+
+.loan {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(var(--loan-background-light)), to(var(--loan-background-dark)));
+  background-image: linear-gradient(to right bottom, var(--loan-background-light), var(--loan-background-dark));
+  padding: 1rem 1.4rem;
+}
+
+.close-account {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(var(--close_account-background-light)), to(var(--close_account-background-dark)));
+  background-image: linear-gradient(to right bottom, var(--close_account-background-light), var(--close_account-background-dark));
+  padding: 1rem 1.4rem;
+}
+
+.summary-section {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.summary-section h3 {
+  font-size: var(--font-size-small);
+  font-weight: 400;
+}
+
+.summary-section .overal-deposits-value,
+.summary-section .overal-interests-value {
+  font-size: 25px;
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--loan-background-light)), to(var(--loan-background-dark)));
+  background-image: linear-gradient(to right, var(--loan-background-light), var(--loan-background-dark));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.summary-section .overal-withdrawal-value {
+  font-size: 25px;
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--close_account-background-light)), to(var(--close_account-background-dark)));
+  background-image: linear-gradient(to right, var(--close_account-background-light), var(--close_account-background-dark));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.summary-section .sort-balance-btn {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logged-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.logged-out .counter-logged {
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 75rem) {
+  .app {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (100px)[4] 60px (100px)[3] 60px;
+        grid-template-rows: repeat(4, 100px) 60px repeat(3, 100px) 60px;
+  }
+  .app h3 {
+    font-size: var(--font-small-size);
+    font-weight: 400;
+  }
+  .app .summary-section .overal-deposits-value,
+  .app .summary-section .overal-interests-value,
+  .app .summary-section .overal-withdrawal-value {
+    font-size: 17px;
+  }
+  .app .balance-amount h2 {
+    font-size: 1.5rem;
+  }
+  .app .summary-section {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
+    grid-row: 5/6;
+  }
+  .app .logged-out {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+/*# sourceMappingURL=style.css.map */

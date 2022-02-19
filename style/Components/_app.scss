@@ -1,0 +1,189 @@
+.app {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: repeat(5, 100px);
+    gap: 10px;
+    padding: 10px;
+    max-width: 920px;
+    margin: 0px auto;font-family: inherit;
+    transition: 0.4s ease-in-out;
+    opacity: 0;
+
+    & > * {
+        border-radius: 5px;
+    }
+}
+
+// Balance section
+.balance {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
+    &-current {
+        h2 {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: var( --font-size_small);
+        }
+    }
+
+    &-amount {
+        h2 {
+            font-size: 2.3rem;
+            font-weight: 500;
+        }
+    }
+}
+
+// Movements section
+.movements {
+    grid-row: 2/span 3;
+    background-color: #fff;
+    box-shadow: 0.5px 0.5px 25px #0000001c;
+    overflow: auto;
+    border-bottom: 5px solid #fff;
+    border-top: 5px solid #fff;
+
+    .movement-item {
+        display: flex;
+        padding: 0.5rem 1rem;
+        justify-content: space-between;
+        align-items: center;
+
+        &:not(:last-child){
+            border-bottom: 1px solid var(--background-color);
+        }
+
+        p.movement-type-depozit {
+            padding: 0.2rem 0.4rem;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 20px;
+            font-size: var(--font-small-size);
+            background-image: linear-gradient(to right, var(--loan-background-light), var(--loan-background-dark));
+        }
+
+        p.movement-type-withdrawal {
+            padding: 0.2rem 0.4rem;
+            color: #fff;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-size: var(--font-small-size);
+            background-image: linear-gradient(to right, var(--close_account-background-light), var(--close_account-background-dark));
+        }
+
+        h3.movement-value-amount {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .movement-date-value {
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+}
+
+// Transfer section
+.transfer {
+    background-image: linear-gradient(to right bottom, var(--transfer-background-light), var(--transfer-background-dark));
+    padding: 1rem 1.4rem;
+}
+
+// Loan section
+.loan {
+    background-image: linear-gradient(to right bottom, var(--loan-background-light), var(--loan-background-dark));
+    padding: 1rem 1.4rem;
+}
+
+// Close account section
+.close-account {
+    background-image: linear-gradient(to right bottom, var(--close_account-background-light), var(--close_account-background-dark));
+    padding: 1rem 1.4rem;
+}
+
+//Summary section
+.summary-section {
+    grid-column: 1/2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+        font-size: var(--font-size-small);
+        font-weight: 400;
+    }
+
+    .overal-deposits-value,
+    .overal-interests-value {
+        font-size: 25px;
+        background-image: linear-gradient(to right, var(--loan-background-light), var(--loan-background-dark));
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .overal-withdrawal-value {
+        font-size: 25px;
+        background-image: linear-gradient(to right, var(--close_account-background-light), var(--close_account-background-dark));
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .sort-balance-btn {
+        background: none;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+//Conter Logged out Section
+.logged-out {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .counter-logged {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 75rem){
+   .app {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,100px) 60px repeat(3,100px) 60px;
+
+        h3 {
+            font-size: var(--font-small-size);
+            font-weight: 400;
+        } 
+
+        .summary-section .overal-deposits-value,
+        .summary-section .overal-interests-value,
+        .summary-section .overal-withdrawal-value {
+            font-size: 17px;
+        }
+
+        .balance {
+            &-amount {
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        .summary-section {
+            grid-row: 5/6;
+        }
+        .logged-out {
+            justify-content: flex-start;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@mixin btn_form-text {
+    padding: 6px 10px;
+    width: 110px;
+    text-align: center;
+    font-size: 15px;
+    margin: 0px 3px;
+    outline: none;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 1px 1px 15px #f0f0f0;
+    &:focus {
+        box-shadow: none;
+        border: 1px solid gray;
+    }
+}
+
+@mixin  btn_form-submit {
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+}

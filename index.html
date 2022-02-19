@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bank service platform">
+    <title>Bank &mdash; Service platform</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" href="imgs/logo.png">
+    <link rel="apple-touch-icon" href="imgs/logo.png">
+</head>
+<body>
+    <header>
+        <h1 class="welcome">Log in to get started</h1>
+        <figure class="logo">
+            <img src="imgs/logo.png" alt="logo">
+        </figure>
+        <nav>
+            <form class="login">
+                <input type="text" class="user_button" placeholder="USER">
+                <input type="text" class="pin_button" placeholder="PIN" maxlength="4">
+                <button type="submit" class="submit_button">&rarr;</button>
+            </form>
+        </nav>
+    </header>
+    <main class="app">
+        <!-- Balance -->
+        <div class="balance">
+           <div class="balance-current">
+               <h2>Current balance</h2>
+               <p>As of <span class="date">05/08/2037</span></p>
+           </div>
+           <div class="balance-amount">
+               <h2>$<span class="balance-amount-value">0000</span></h2>
+           </div>
+        </div>
+
+        <!-- Movements -->
+        <div class="movements">
+            <div class="movements-row">
+                <div class="movement-item">
+                    <div class="movement-type-depozit">
+                        <p class="movement-type-depozit"><span class="movement-index">2</span> depozit</p>
+                    </div>
+                    <div class="movement-date">
+                        <small class="movement-date-value"></small>
+                    </div>
+                    <div class="movement-value">
+                        <h3 class="movement-value-amount">$400</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transfer money -->
+        <div class="transfer">
+            <h4 class="component-heading">Transfer money</h4>
+            <form action="#" class="transfer-form">
+                <div>
+                    <input type="text" class="transfer-account" name="text">
+                    <label for="text">Transfer to</label>
+                </div>
+                <div>
+                    <input type="number" class="transfer-amount" name="text">
+                    <label for="text">Amount</label>
+                </div>
+                <div>
+                    <button type="submit" class="transfer-submit">&rarr;</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Request loan -->
+        <div class="loan">
+            <h4 class="component-heading">Request loan</h4>
+            <form action="#" class="loan-form">
+                <div>
+                    <input type="number" class="loan-amount" name="text">
+                    <label for="text">Amount</label>
+                </div>
+                <div>
+                    <button type="submit" class="loan-submit">&rarr;</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Close account -->
+        <div class="close-account">
+            <h4 class="component-heading">Close account</h4>
+            <form action="#" class="close-form">
+                <div>
+                    <input type="text" class="close-account-username" name="text">
+                    <label for="text">Confirm user</label>
+                </div>
+                <div>
+                    <input type="text" class="close-account-pin" name="password" maxlength="4">
+                    <label for="password">Confirm pin</label>
+                </div>
+                <div>
+                    <button type="submit" class="transfer-submit close-account-submit">&rarr;</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Summary section -->
+        <div class="summary-section">
+            <div class="overal-deposits">
+                <h3>IN <span class="overal-deposits-value">$0000</span></h3>
+            </div>
+            <div class="overal-withdrawal">
+                <h3>OUT <span class="overal-withdrawal-value">0000</span></h3>
+            </div>
+            <div class="inetersts-balance">
+                <h3>INTERESTS <span class="overal-interests-value">0000</span></h3>
+            </div>
+            <div class="sort-balance">
+                <!-- <button class="sort-balance-btn">SORT &darr;</button> -->
+            </div>
+        </div>
+
+        <!-- Counter logged out -->
+        <div class="logged-out">
+            <p class="counter-logged">You will be logged out in <span class="couter-logged-value"></span></p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+.component-heading {
+    font-size: 14px;
+}
+
+.transfer form,
+.loan form,
+.close-account form {
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    margin-top: 0.2rem;
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+        &:not(:last-child){
+            flex-basis: 30%;
+        }
+        
+        label {
+            display: inline-block;
+            font-size: 12px;
+            margin: 0;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.3rem 0.5rem;
+            background-color: #ffffff7c;
+            outline: none;
+            font-size: 13px;
+            font-family: inherit;
+            font-weight: 600;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 0.2rem 0.5rem;
+            align-content: center;
+        }
+    }
+}
